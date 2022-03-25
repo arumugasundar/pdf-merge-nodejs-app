@@ -1,0 +1,24 @@
+{
+  "name": "pdf-merge-nodejs-app",
+  "version": "1.0.0",
+  "description": "A node.js app for pdf merging",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arumugasundar/pdf-merge-nodejs-app.git"
+  },
+  "author": "Arumuga Sundar Arunachalam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arumugasundar/pdf-merge-nodejs-app/issues"
+  },
+  "homepage": "https://github.com/arumugasundar/pdf-merge-nodejs-app#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pdf-merger-js": "^3.4.0"
+  }
+}
