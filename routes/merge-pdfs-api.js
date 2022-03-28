@@ -8,8 +8,6 @@ const router = express.Router();
 router.post('/', async (req,res) => {
 
     const labels = req.body.labelUrl;
-    labels.push(labels[0]);
-    labels.push(labels[0]);
     let merger = new PDFMerger();
   
     for( let i in labels){
