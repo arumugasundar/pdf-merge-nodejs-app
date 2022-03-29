@@ -15,16 +15,23 @@ router.post('/', async (req,res) => {
 
       try{
         https.get(labels[i], async function(response) {response.pipe(file);});
-      }catch(error) {console.log('Error in fetching pdfs from downloadable link', error);};
+      }catch(error) {
+        console.log('Error in fetching pdfs from downloadable link', error);
+        res.status(500).send({error: error, errorText:"Error in fetching pdfs from downloadable link"});
+      };
 
       try{
         merger.add('label.pdf');
-      }catch(error) {console.log('Error in merging pdfs', error);};
+      }catch(error) {
+        console.log('Error in merging pdfs', error);
+        res.status(500).send({error: error, errorText:"Error in merging pdfs"});
+      };
 
     }
 
     await merger.save('mergedLabels.pdf').catch((error) => {
         console.log('Error in saving merged pdf', error);
+        res.status(500).send({error: error, errorText:"Error in saving merged pdf"});
     });
   
     let file = fs.createReadStream('mergedLabels.pdf');
