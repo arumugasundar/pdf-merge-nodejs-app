@@ -12,6 +12,10 @@ app.use((req,res,next) => {
     next();
 });
 
+app.get('/', (req,res,next) => {
+    res.send('Merge Pdf API is Running!');
+});
+
 app.use('/api/merge-pdfs',MERGE_PDFS_API);
 
 module.exports = app;
