@@ -1,5 +1,5 @@
 const express = require("express");
-const https = require('https');
+let https = require('https');
 const fs = require('fs');
 const PDFMerger = require('pdf-merger-js');
 const crypto = require('crypto');
@@ -21,6 +21,13 @@ router.post('/', (req,res) => {
           emitClose: true,
           start: 0
         });
+
+        if(labels[i].substring(0,5) === 'https'){
+          https = require('https');
+        }else{
+          https = require('http');
+        }
+        
         https.get(labels[i], (resp) => {
           resp.pipe(file); /* store the response from get request to the file */
           file.on('finish', () => { /* listening for file completion state */
